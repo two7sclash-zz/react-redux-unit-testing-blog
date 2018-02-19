@@ -280,14 +280,19 @@ And the component looked something like:
 In other words, we should try to grab our form, and use the real state setting methods called by the event handlers to drive our form's data for a given test.
 
 Lastly, Enzyme makes it really easy to test a component like this but it was non-obvious how to test the default value of the form. 
-```it('defaults to 5 minimum payments', function () {
+```
+it('defaults to 5 minimum payments', function () {
   const wrapper = shallow(
     <PaymentsTab />
   )
   assert.equal(wrapper.find('[id="visitSelector"]').node.value, 5)
-})```
+})
+```
 
 Here we can just shallow render the component, call find() on the test id and then use .node.value to get the default value.
+
+## Summary
+???
 
  
  
