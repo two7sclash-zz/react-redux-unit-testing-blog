@@ -209,12 +209,12 @@ describe('authenticate reducer', () => {
  * There's no need to test that React will trigger a "change" event when a element is clicked (i.e. a checkbox) - just shallow-render your Component, and assert that appropriate attribute (i.e. `onChange`) matches the prop or state you pass in manually to your test. You should be using `state` to store the current state of a given element element and base your rendering on that. [Remember how Eventing works in a proper React setup](https://www.kirupa.com/react/events_in_react.htm).
 
 
-##Connected Components
+## Connected Components
 
 * While testing the redux wrapped (connected) HOC is not recommended, the nature of our app mean you will often to search for the existence of components wrapped with `connect`, `withStyles` etc.
 * But what about `mapStateToProps?` This can be exported and tested in isolation as a pure function if desired. My response to this method is a resounding "Meh." Really, if you Shallow render a container and test that the appropriate actions are dispatched, you're already testing this. 
 
-##Forms
+## Forms
 
 Per above, we really should not be changing state/props through Eventing. Rather we can test that each form element event handler fires the appropriate prop function, and that it perhaps changes 'state' in the appropriate way. Then we can simulate the entire form getting submitted. Again, _Enzyme's shallow( ... ).simulate() does not bubble events; it gets the event handler and invokes it. 
 
